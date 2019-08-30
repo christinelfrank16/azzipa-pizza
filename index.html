@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Azzip's Pizza Parlor</title>
+    <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Add jumbotron here -->
+      <h1>Azzip's Pizza Parlor!</h1>
+      <h3>Try one of our "weird pizzas" with our unique toppings!</h3>
+      <h6>We also provide normal toppings for the ordinary folk - but find them first!</h6>
+      <div class="pizza">
+        <h4>Make your pizza by choosing from the selections below</h4>
+        <form id="selections">
+          <div class="size-options">
+            <input type="radio" name="size" value="10"> Small, 10"
+            <input type="radio" name="size" value="16"> Medium, 16"
+            <input type="radio" name="size" value="25"> Large, 24"
+          </div>
+          <div class="sauce-options">
+            <input type="radio" name="sauce" value="none"> None
+            <input type="radio" name="sauce" value="normal"> Pistachio / Almond Sauce
+            <input type="radio" name="sauce" value="normal"> Gochujang Sauce (Spicy!)
+            <input type="radio" name="sauce" value="normal"> Blachan Sauce
+            <input type="radio" name="sauce" value="normal"> Kudzu Sauce
+            <input type="radio" name="sauce" value="normal"> Anchovy Sauce
+            <input type="checkbox" name="sauce" value="xtra"> Put on Extra Sauce
+          </div>
+          <div class="topping-options">
+            <h5>Meats & Substitutes</h5>
+            <input type="checkbox" name="topping" value="">Pig Cheek
+            <input type="checkbox" name="topping" value="">Ikan Bilis
+            <input type="checkbox" name="topping" value="">Iberico Ham
+            <input type="checkbox" name="topping" value="">Chicharrones
+            <input type="checkbox" name="topping" value="">Smoked Elvers
+            <input type="checkbox" name="topping" value="">Tempe Slices
+            <h5>Plants</h5>
+            <input type="checkbox" name="topping" value="">Grilled Eggplant
+            <input type="checkbox" name="topping" value="">Durian Fruit
+            <input type="checkbox" name="topping" value="">Daikon Slices
+            <input type="checkbox" name="topping" value="">Loquat Squares
+            <input type="checkbox" name="topping" value="">Nopales Shavings
+            <input type="checkbox" name="topping" value="">Quartered Okra
+            <input type="checkbox" name="topping" value="">Steamed Monk's Beard
+            <h5>Cheeses</h5>
+            <input type="checkbox" name="topping" value="">Goat Cheese
+            <input type="checkbox" name="topping" value="">Porcini Parmesan
+            <input type="checkbox" name="topping" value="">Aged Cheddar and Filé Cheese
+            <input type="checkbox" name="topping" value="">Galangal White Cheese
+            <input type="checkbox" name="topping" value="">Idiazabal Crumbles
+            <h5>Other</h5>
+            <input type="checkbox" name="topping" value="">Puffball Rounds
+            <input type="checkbox" name="topping" value="">Nigella Seeds
+            <input type="checkbox" name="topping" value="">Nori with Sesame Seeds
+            <input type="checkbox" name="topping" value="">Enoki Chunks
+          </div>
+          <div class="premium-options">
+            <input type="checkbox" name="premium" value="">Quinoa Sprinkles
+            <input type="checkbox" name="premium" value="">Quahog
+            <input type="checkbox" name="premium" value="">Pink Fir Apple Slices
+            <input type="checkbox" name="premium" value="">Physalis Jam
+            <input type="checkbox" name="premium" value="">Powdering of Matcha
+            <input type="checkbox" name="premium" value="">Boletes
+          </div>
+          <div class="add-pizza">
+            <button type="submit" class="btn">Add My Pizza!</button>
+          </div>
+        </form>
+      </div>
+      <div class="order">
+        <h5>Your Order</h5>
+        <div class="pizzas">
+
+        </div>
+        <div class="total">
+          <h5>Total : $<span id="price"></span></h5>
+        </div>
+        <div class="submit-order">
+          <button type="button" name="button">Send In My Order!</button>
+          <!-- Add modal to show pizza order status -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -72,3 +72,9 @@ Order.prototype.removePizza = function(id){
     }
   }
 }
+
+
+///////// Front End /////////
+$(document).ready(function(){
+
+});
