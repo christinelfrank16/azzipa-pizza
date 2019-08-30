@@ -14,8 +14,35 @@
   text-align: center;
 }
 
+.modal h6 {
+  text-align: center;
+}
+
+.col {
+  vertical-align: middle;
+}
+
+#xtra {
+  display: inline-block;
+  text-align: center;
+}
+
+#xtra input {
+  float: none;
+}
+#xtra label {
+  margin: 0;
+}
+
+.modal label {
+  display: block;
+  margin-left: 25px;
+  vertical-align: middle;
+}
+
 .modal input {
-  margin: 0 5px;
+  float: left;
+  margin-top: 6px;
 }
 
 #add-pizza {
