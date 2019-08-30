@@ -45,14 +45,27 @@
   margin-top: 6px;
 }
 
+#spacer {
+  height: 50px;
+}
+
 #add-pizza {
+  width: 30%;
   display: block;
+  position:fixed;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 4em;
+  left: 0;
+  right:0;
 }
 .modal #modal-btn {
   width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color: lightgreen;
+  box-shadow: 5px 5px 15px 3px grey;
 }
 
 #size-options, #sauce-options,

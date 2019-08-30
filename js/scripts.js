@@ -199,7 +199,7 @@ function buildPizzaDisplay(pizzaItem){
 }
 
 function pizzaSizeToDisplay(size){
-  var sizeText = $("input:radio[value=" + size + "]")[0].nextSibling.nodeValue;
+  var sizeText = $("input:radio[value=" + size + "]")[0].nextSibling.textContent;
   return sizeText;
 }
 
@@ -249,7 +249,8 @@ function getSelectionValues(groupArray){
   var selectionVals = groupArray.map(function(selection){
     var regexAll = /[A-Za-zéñ]/;
     var regexUpper = /[A-Z]/;
-    var value = $(selection)[0].nextSibling.nodeValue;
+    var value = $(selection)[0].nextSibling.textContent;
+    console.log($(selection));
     var cleanVal = "";
     for(var i=0; i<value.length;i++){
       if(regexUpper.test(value[i]) && i !== 0){
