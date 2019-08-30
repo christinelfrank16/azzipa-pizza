@@ -65,7 +65,7 @@ This application provides the user fields to create their own pizza by selecting
 | Behavior | Input | Output|
 |:-------|:------:|:------:|
 | The application displays pizza size and topping options to user at page load | Open Website | Order displays pizza options |
-| The application defaults to a large pizza size selection, red sauce and cheese topping | Open Website | Pizza options displayed with default values selected |
+| The application defaults to a large pizza size selection, no sauce and no toppings | Open Website | Pizza options displayed with default values selected |
 | The application prevents multiple pizza size selections for a single pizza and updates to latest size selection | Select other pizza size | Selection from previous size removed and displays latest selection |
 | The application prevents multiple pizza sauce selections for a single pizza and updates to latest size selection | Select other pizza sauce | Selection from previous sauce removed and displays latest selection |
 | The application allows one pizza topping selection for a single pizza | Select topping | Topping selection displayed |

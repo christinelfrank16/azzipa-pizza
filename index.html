@@ -11,19 +11,19 @@
     <div class="container">
       <!-- Add jumbotron here -->
       <h1>Azzip's Pizza Parlor!</h1>
-      <h3>Try one of our "weird pizzas" with our unique toppings!</h3>
-      <h6>We also provide normal toppings for the ordinary folk - but find them first!</h6>
+      <h3>Make one of our "weird pizzas" with our unique toppings!</h3>
+      <h6 id="ordinary">We also provide normal toppings for the ordinary folk</h6>
       <div id="pizza">
         <h4>Make your pizza by choosing from the selections below</h4>
         <form id="selections">
-          <div class="size-options">
+          <div id="size-options">
             <input type="radio" name="size" value="10"> Small, 10"
             <input type="radio" name="size" value="16"> Medium, 16"
-            <input type="radio" name="size" value="25"> Large, 24"
+            <input type="radio" name="size" value="25" checked> Large, 24"
           </div>
-          <div class="sauce-options">
+          <div id="sauce-options">
             <div class="unique">
-              <input type="radio" name="sauce" value="none"> None
+              <input type="radio" name="sauce" value="none" checked> None
               <input type="radio" name="sauce" value="normal"> Pistachio / Almond Sauce
               <input type="radio" name="sauce" value="normal"> Gochujang Sauce (Spicy!)
               <input type="radio" name="sauce" value="normal"> Blachan Sauce
@@ -38,7 +38,7 @@
             </div>
             <input type="checkbox" name="sauce" value="xtra"> Put on Extra Sauce
           </div>
-          <div class="topping-options">
+          <div id="topping-options">
             <h5>Meats & Substitutes</h5>
             <div class="unique">
               <input type="checkbox" name="topping" value="">Pig Cheek
@@ -100,7 +100,7 @@
               <input type="checkbox" name="topping" value="">Avocado Slices
             </div>
           </div>
-          <div class="premium-options">
+          <div id="premium-options">
             <div class="unique">
               <input type="checkbox" name="premium" value="">Quinoa Sprinkles
               <input type="checkbox" name="premium" value="">Quahog

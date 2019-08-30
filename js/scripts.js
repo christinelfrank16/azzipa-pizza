@@ -1,8 +1,9 @@
 ///////// Back End /////////
 ///////// Pizza /////////
-function Pizza(pizzaSize, pizzaSauce, pizzaToppings, premiumToppings) {
+function Pizza(pizzaSize, pizzaSauce, useXtraSauce, pizzaToppings, premiumToppings) {
   this.size = pizzaSize,
   this.sauce = pizzaSauce,
+  this.xtraSauce = useXtraSauce,
   this.toppings = pizzaToppings,
   this.premium = premiumToppings,
   this.costBreakDown = [0,0,0,0]
@@ -47,6 +48,19 @@ Pizza.prototype.addPremiumCost = function(){
   this.costBreakDown[3] = premToppingsCount;
 }
 
+Pizza.prototype.calcTotalCost = function(){
+  this.addSizeCost();
+  this.addSauceCost();
+  this.addToppingCost();
+  this.addPremiumCost();
+
+  var cost = 0;
+  this.costBreakDown.forEach(function(itemCost){
+    cost += itemCost;
+  })
+  this.cost = cost;
+}
+
 ///////// Order /////////
 function Order(){
   this.order = [],
@@ -76,5 +90,71 @@ Order.prototype.removePizza = function(id){
 
 ///////// Front End /////////
 $(document).ready(function(){
+  var order = new Order();
+  $("#price").text(order.total);
 
+  $("#ordinary").click(function(){
+    $(".for-the-ordinary").show();
+  });
+
+  $("#selections").submit(function(event){
+    event.preventDefault();
+
+    var selections = getFormVals();
+    var newPizza = makePizza(selections);
+
+    order.addPizza(newPizza);
+    console.log(order);
+    //displayOrder(order);
+  });
 });
+
+
+
+function makePizza(selections){
+  //selections[0] -> size
+  //selections[1] -> sauce
+  //selections[2] -> xtra sauce
+  //selections[3] -> toppings array
+  //selections[4] -> premium array
+  var pizza = new Pizza(selections[0], selections[1], selections[2], selections[3], selections[4]);
+  pizza.calcTotalCost();
+
+  return pizza;
+}
+
+function getFormVals(){
+  var selections = [];
+
+  var size = parseInt($("input:radio[name=size]:checked").val());
+  var sauce = $("input:radio[name=sauce]:checked").val();
+  var xtra = $("input:checkbox[name=sauce]").prop("checked");
+  var toppings = getSelectionValues($("input:checkbox[name=topping]:checked").toArray());
+  var premium = getSelectionValues($("input:checkbox[name=premium]:checked").toArray());
+
+  selections.push(size);
+  selections.push(sauce);
+  selections.push(xtra);
+  selections.push(toppings);
+  selections.push(premium);
+
+  return selections;
+}
+
+function getSelectionValues(groupArray){
+  var selectionVals = groupArray.map(function(selection){
+    var regexAll = /[A-Za-z]/;
+    var regexUpper = /[A-Z]/;
+    var value = $(selection)[0].nextSibling.nodeValue;
+    var cleanVal = "";
+    for(var i=0; i<value.length;i++){
+      if(regexUpper.test(value[i]) && i !== 0){
+        cleanVal += " " + value[i];
+      } else if(regexAll.test(value[i])){
+        cleanVal += value[i];
+      }
+    }
+    return cleanVal;
+  });
+  return selectionVals;
+}
