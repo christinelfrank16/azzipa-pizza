@@ -114,12 +114,19 @@ $(document).ready(function(){
     $("#weird").hide();
   });
 
+  $("#show-options").click(function(){
+    console.log($(".modal"));
+    $(".modal").modal("show");
+  });
+
   $("#selections").submit(function(event){
     event.preventDefault();
 
     var selections = getFormVals();
     var newPizza = makePizza(selections);
     order.addPizza(newPizza);
+    $(".modal").modal("hide");
+    $('#selections')[0].reset();
     order.updateTotal();
     displayOrder(order);
   });

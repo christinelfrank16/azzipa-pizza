@@ -9,3 +9,62 @@
 .remove {
   float: right;
 }
+
+.modal h5 {
+  text-align: center;
+}
+
+#add-pizza {
+  display: block;
+}
+.modal #modal-btn {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#size-options, #sauce-options,
+#topping-options, #premium-options {
+  border: 1px solid grey;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+/* Centering modal references StackOverflow */
+/* https://stackoverflow.com/questions/18053408/vertically-centering-bootstrap-modal-window*/
+@media screen and (max-width: 700px) {
+  .vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+  }
+  .vertical-align-center {
+      /* To center vertically */
+      display: table-cell;
+      vertical-align: middle;
+      pointer-events:none;
+  }
+  .modal-content {
+      /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+      width:inherit;
+      max-width:inherit;
+      height:inherit;
+      margin: 0 auto;
+      pointer-events: all;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  /* h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  } */
+}
