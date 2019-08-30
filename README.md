@@ -43,10 +43,26 @@ This application provides the user fields to create their own pizza by selecting
 | The application displays order status when the user commits their order | Submit Order | Order status displays and updates over time |
 | The application uses "Making Pizza", "Baking Pizza", "Packing Pizza", "Ready for Pickup" statuses, in that order, when displaying order status | Submit Order | Order status displays and updates over status values |
 
-#### Details
+#### Cost Behavior
 
 | Behavior | Input | Output|
 |:-------|:------:|:------:|
+| The application allows the user to select a small size pizza | "Small, 10"" | Adds $2 to breakdown|
+| The application allows the user to select a medium size pizza | "Medium, 16"" | Adds $3 to breakdown|
+| The application allows the user to select a large size pizza | "Large, 24"" | Adds $5 to breakdown|
+| The application allows the user to select a 'no sauce' option for their pizza | "No Sauce" | Adds $0 to breakdown|
+| The application allows the user to select a sauce option for their pizza | "White Sauce" | Adds $1 to breakdown|
+| The application allows the user to add "extra" sauce for their pizza | "Extra White Sauce" | Adds $2 to breakdown|
+| The application allows the user to add no toppings to their pizza | No toppings selected | Adds $0 to breakdown|
+| The application allows the user to add up to 4 toppings to their pizza at a low price rate| 4 toppings selected | Adds $0.50 per topping to breakdown|
+| The application allows the user to add up to 8 toppings to their pizza at a moderate price rate| 6 toppings selected | Adds $0.75 per topping to breakdown|
+| The application allows the user to add more than 8 toppings to their pizza at a higher price rate| 10 toppings selected | Adds $0.75 per topping for first 8 toppings, and adds $1 per additional topping to breakdown|
+| The application allows the user to add premium toppings to their pizza | 2 premium toppings selected | Adds $1 per premium topping to breakdown|
+| The application uses the sum of the cost breakdown to calculate the total cost of a pizza | small, normal sauce pizza with  2 toppings | Displays cost $4 |
+
+
+#### Display Behavior - HTML
+
 | The application displays pizza size and topping options to user at page load | Open Website | Order displays pizza options |
 | The application defaults to a large pizza size selection, red sauce and cheese topping | Open Website | Pizza options displayed with default values selected |
 | The application prevents multiple pizza size selections for a single pizza and updates to latest size selection | Select other pizza size | Selection from previous size removed and displays latest selection |
