@@ -2,6 +2,10 @@
   display: none;
 }
 
+#weird {
+  display: none;
+}
+
 .remove {
   float: right;
 }

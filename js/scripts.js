@@ -101,10 +101,17 @@ Order.prototype.updateTotal = function(){
 ///////// Front End /////////
 $(document).ready(function(){
   var order = new Order();
+  attachPizzaRemoveListeners(order);
   $("#price").text(order.total);
 
   $("#ordinary").click(function(){
     $(".for-the-ordinary").show();
+    $("#weird").show();
+  });
+
+  $("#weird").click(function(){
+    $(".for-the-ordinary").hide();
+    $("#weird").hide();
   });
 
   $("#selections").submit(function(event){
@@ -118,10 +125,11 @@ $(document).ready(function(){
   });
 });
 
-function attachPizzaRemoveListeners(){
+function attachPizzaRemoveListeners(order){
   $("#pizzas").on("click", ".remove", function(event){
-    order.removePizza(parsInt(event.target.closest(".card").id));
+    order.removePizza(parseInt(event.target.closest(".card").id));
     order.updateTotal();
+    displayOrder(order);
   });
 }
 
@@ -151,11 +159,9 @@ function buildPizzaDisplay(pizzaItem){
             <ul>
               <li>TOPPINGS</li>
             </ul>
-          </div>
-          <div class="col">
             <div class="card-text">Premiums:</div>
             <ul>
-              <li>PREMIUM</li>
+            <li>PREMIUM</li>
             </ul>
           </div>
         </div>
@@ -234,7 +240,7 @@ function getFormVals(){
 
 function getSelectionValues(groupArray){
   var selectionVals = groupArray.map(function(selection){
-    var regexAll = /[A-Za-z]/;
+    var regexAll = /[A-Za-zéñ]/;
     var regexUpper = /[A-Z]/;
     var value = $(selection)[0].nextSibling.nodeValue;
     var cleanVal = "";
