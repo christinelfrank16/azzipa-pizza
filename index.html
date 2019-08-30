@@ -19,24 +19,24 @@
           <div id="size-options">
             <input type="radio" name="size" value="10"> Small, 10"
             <input type="radio" name="size" value="16"> Medium, 16"
-            <input type="radio" name="size" value="25" checked> Large, 24"
+            <input type="radio" name="size" value="24" checked> Large, 24"
           </div>
           <div id="sauce-options">
             <div class="unique">
-              <input type="radio" name="sauce" value="none" checked> None
-              <input type="radio" name="sauce" value="normal"> Pistachio / Almond Sauce
-              <input type="radio" name="sauce" value="normal"> Gochujang Sauce (Spicy!)
-              <input type="radio" name="sauce" value="normal"> Blachan Sauce
-              <input type="radio" name="sauce" value="normal"> Kudzu Sauce
-              <input type="radio" name="sauce" value="normal"> Anchovy Sauce
+              <input type="radio" name="sauce" value="None" checked>None
+              <input type="radio" name="sauce" value="Pistachio / Almond Sauce">Pistachio / Almond Sauce
+              <input type="radio" name="sauce" value="Gochujang Sauce (Spicy!)">Gochujang Sauce (Spicy!)
+              <input type="radio" name="sauce" value="Blachan Sauce">Blachan Sauce
+              <input type="radio" name="sauce" value="Kudzu Sauce">Kudzu Sauce
+              <input type="radio" name="sauce" value="Anchovy Sauce">Anchovy Sauce
             </div>
             <div class="for-the-ordinary">
-              <input type="radio" name="sauce" value="normal"> Red Sauce
-              <input type="radio" name="sauce" value="normal"> White Sauce
-              <input type="radio" name="sauce" value="normal"> Pesto Sauce
-              <input type="radio" name="sauce" value="normal"> BBQ Sauce
+              <input type="radio" name="sauce" value="Red Sauce">Red Sauce
+              <input type="radio" name="sauce" value="White Sauce">White Sauce
+              <input type="radio" name="sauce" value="Pesto Sauce">Pesto Sauce
+              <input type="radio" name="sauce" value="BBQ Sauce">BBQ Sauce
             </div>
-            <input type="checkbox" name="sauce" value="xtra"> Put on Extra Sauce
+            <input type="checkbox" name="sauce" value="xtra">Put on Extra Sauce
           </div>
           <div id="topping-options">
             <h5>Meats & Substitutes</h5>
@@ -124,7 +124,11 @@
       <div id="order">
         <h5>Your Order</h5>
         <div id="pizzas">
-
+          <div id="no-order" class="card">
+            <div class="card-body">
+              <div class="card-text"><strong>Make a Pizza!</strong></div>
+            </div>
+          </div>
         </div>
         <div id="total">
           <h5>Total : $<span id="price"></span></h5>
@@ -133,7 +137,6 @@
           <button type="button" name="button">Send In My Order!</button>
           <!-- Add modal to show pizza order status -->
         </div>
-      </div>
     </div>
   </body>
 </html>

@@ -23,12 +23,13 @@ Pizza.prototype.addSizeCost = function(){
 
 Pizza.prototype.addSauceCost = function(){
   var sauce = this.sauce;
-  if(sauce === "none"){
+  if(sauce === "None"){
     this.costBreakDown[1] = 0;
-  } else if (sauce.includes("xtra")){
-    this.costBreakDown[1] = 2;
   } else {
     this.costBreakDown[1] = 1;
+    if (this.xtraSauce){
+      this.costBreakDown[1] = 2;
+    }
   }
 }
 
@@ -87,6 +88,15 @@ Order.prototype.removePizza = function(id){
   }
 }
 
+Order.prototype.updateTotal = function(){
+  var total = 0;
+  this.order.forEach(function(pizza){
+    total += pizza.cost;
+  });
+  this.total = total.toFixed(2);
+  return this.total;
+}
+
 
 ///////// Front End /////////
 $(document).ready(function(){
@@ -102,13 +112,94 @@ $(document).ready(function(){
 
     var selections = getFormVals();
     var newPizza = makePizza(selections);
-
     order.addPizza(newPizza);
-    console.log(order);
-    //displayOrder(order);
+    order.updateTotal();
+    displayOrder(order);
   });
 });
 
+function attachPizzaRemoveListeners(){
+  $("#pizzas").on("click", ".remove", function(event){
+    order.removePizza(parsInt(event.target.closest(".card").id));
+    order.updateTotal();
+  });
+}
+
+function displayOrder(order){
+  var pizzaOrder = $("#pizzas");
+  var htmlPizzasToDisplay = "";
+  order.order.forEach(function(pizza){
+    htmlPizzasToDisplay += buildPizzaDisplay(pizza);
+  });
+  pizzaOrder.html(htmlPizzasToDisplay);
+  $("#price").text(order.total);
+}
+
+function buildPizzaDisplay(pizzaItem){
+  var markup = `
+    <div id="$ID$" class="card">
+      <div class="card-body">
+        <button class="remove" type="button">X</button>
+        <div class="row">
+          <div class="col">
+            <div class="card-text">$SIZE$</div>
+            <div class="card-text">$SAUCE$</div>
+            <div class="card-text">$XTRA$</div>
+          </div>
+          <div class="col">
+            <div class="card-text">Toppings:</div>
+            <ul>
+              <li>TOPPINGS</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="card-text">Premiums:</div>
+            <ul>
+              <li>PREMIUM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-text">Cost: $$COST$</div>
+      </div>
+    </div>
+  `;
+
+  markup = markup.replace("$ID$", pizzaItem.id);
+  markup = markup.replace("$SIZE$", pizzaSizeToDisplay(pizzaItem.size));
+  if(pizzaItem.sauce === "None"){
+    markup = markup.replace("$SAUCE$", "No Sauce");
+    markup = markup.replace("<div class=\"card-text\">$XTRA$</div>", "");
+  } else {
+    markup = markup.replace("$SAUCE$", pizzaItem.sauce);
+    if(pizzaItem.xtraSauce){
+      markup = markup.replace("$XTRA$", "Add Extra Sauce");
+    } else {
+      markup = markup.replace("<div class=\"card-text\">$XTRA$</div>", "");
+    }
+  }
+
+  markup = markup.replace("<li>TOPPINGS</li>", makeToppingList(pizzaItem.toppings));
+  markup = markup.replace("<li>PREMIUM</li>", makeToppingList(pizzaItem.premium));
+  markup = markup.replace("$COST$", pizzaItem.cost.toFixed(2));
+
+  return markup;
+}
+
+function pizzaSizeToDisplay(size){
+  var sizeText = $("input:radio[value=" + size + "]")[0].nextSibling.nodeValue;
+  return sizeText;
+}
+
+function makeToppingList(propArray){
+  var listString = "";
+  propArray.forEach(function(toppingItem){
+    listString += "<li>" + toppingItem + "</li>";
+  });
+  if(!listString){
+    listString = "None Selected";
+  }
+  return listString;
+}
 
 
 function makePizza(selections){

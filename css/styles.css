@@ -1,3 +1,7 @@
 .for-the-ordinary {
   display: none;
 }
+
+.remove {
+  float: right;
+}
