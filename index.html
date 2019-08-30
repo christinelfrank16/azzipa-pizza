@@ -15,7 +15,9 @@
         <h1 class="display-4">Azzip's Pizza Parlor!</h1>
         <p class="lead">Make one of our "weird pizzas" with our unique toppings!</p>
       </div>
-      <button id="show-options" type="button" name="button">Make A Pizza!</button>
+      <div id="show-options-area">
+        <button id="show-options" type="button" name="button">Make A Pizza!</button>
+      </div>
       <div class="modal" tabindex="-1" role="dialog">
         <div class="vertical-alignment-helper">
           <div class="modal-dialog vertical-align-center" role="document">
@@ -336,8 +338,8 @@
         <div id="total">
           <h5>Total : $<span id="price"></span></h5>
         </div>
-        <div id="submit-order">
-          <button type="button" name="button">Send In My Order!</button>
+        <div>
+          <button id="submit-order" type="button" name="button">Send In My Order!</button>
           <!-- Add modal to show pizza order status -->
         </div>
       </div>

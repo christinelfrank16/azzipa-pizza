@@ -99,6 +99,7 @@ Order.prototype.updateTotal = function(){
 
 
 ///////// Front End /////////
+
 $(document).ready(function(){
   var order = new Order();
   attachPizzaRemoveListeners(order);
@@ -126,10 +127,16 @@ $(document).ready(function(){
     var newPizza = makePizza(selections);
     order.addPizza(newPizza);
     $(".modal").modal("hide");
-    $('#selections')[0].reset();
     order.updateTotal();
     displayOrder(order);
   });
+
+  $(".modal").on("hidden.bs.modal", function () {
+    $(".for-the-ordinary").hide();
+    $("#weird").hide();
+    $('#selections')[0].reset();
+});
+
 });
 
 function attachPizzaRemoveListeners(order){
