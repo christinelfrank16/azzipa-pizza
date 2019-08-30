@@ -32,106 +32,125 @@
                   <form id="selections">
                     <div id="size-options">
                       <h5>Size</h5>
-                      <input type="radio" name="size" value="10"> Small, 10"
-                      <input type="radio" name="size" value="16"> Medium, 16"
-                      <input type="radio" name="size" value="24" checked> Large, 24"
+                      <div class="row">
+                        <div class="col">
+                          <input type="radio" name="size" value="10"> Small, 10"
+                        </div>
+                        <div class="col">
+                          <input type="radio" name="size" value="16"> Medium, 16"
+                        </div>
+                        <div class="col">
+                          <input type="radio" name="size" value="24" checked> Large, 24"
+                        </div>
+                      </div>
                     </div>
                     <div id="sauce-options">
                       <h5>Sauce</h5>
                       <div class="unique">
-                        <input type="radio" name="sauce" value="None" checked>None
-                        <input type="radio" name="sauce" value="Pistachio / Almond Sauce">Pistachio / Almond Sauce
-                        <input type="radio" name="sauce" value="Gochujang Sauce (Spicy!)">Gochujang Sauce (Spicy!)
-                        <input type="radio" name="sauce" value="Blachan Sauce">Blachan Sauce
-                        <input type="radio" name="sauce" value="Kudzu Sauce">Kudzu Sauce
-                        <input type="radio" name="sauce" value="Anchovy Sauce">Anchovy Sauce
+                        <div class="row">
+                          <div class="col">
+                            <label><input type="radio" name="sauce" value="None" checked>None</label>
+                            <br>
+                            <label><input type="radio" name="sauce" value="Pistachio / Almond Sauce">Pistachio / Almond Sauce</label>
+                          </div>
+                          <div class="col">
+                            <label><input type="radio" name="sauce" value="Gochujang Sauce (Spicy!)">Gochujang Sauce (Spicy!)</label>
+                            <br>
+                            <label><input type="radio" name="sauce" value="Blachan Sauce">Blachan Sauce</label>
+                          </div>
+                          <div class="col">
+                            <label><input type="radio" name="sauce" value="Kudzu Sauce">Kudzu Sauce</label>
+                            <br>
+                            <label><input type="radio" name="sauce" value="Anchovy Sauce">Anchovy Sauce</label>
+                          </div>
+                        </div>
                       </div>
                       <div class="for-the-ordinary">
-                        <input type="radio" name="sauce" value="Red Sauce">Red Sauce
-                        <input type="radio" name="sauce" value="White Sauce">White Sauce
-                        <input type="radio" name="sauce" value="Pesto Sauce">Pesto Sauce
-                        <input type="radio" name="sauce" value="BBQ Sauce">BBQ Sauce
+                        <label><input type="radio" name="sauce" value="Red Sauce">Red Sauce</label>
+                        <label><input type="radio" name="sauce" value="White Sauce">White Sauce</label>
+                        <label><input type="radio" name="sauce" value="Pesto Sauce">Pesto Sauce</label>
+                        <label><input type="radio" name="sauce" value="BBQ Sauce">BBQ Sauce</label>
                       </div>
-                      <input type="checkbox" name="sauce" value="xtra">Put on Extra Sauce
+                      <label><input type="checkbox" name="sauce" value="xtra">Put on Extra Sauce</label>
                     </div>
                     <div id="topping-options">
                       <h5>Toppings</h5>
                       <h6>Meats & Substitutes</h6>
                       <div class="unique">
-                        <input type="checkbox" name="topping" value="">Pig Cheek
-                        <input type="checkbox" name="topping" value="">Ikan Bilis
-                        <input type="checkbox" name="topping" value="">Iberico Ham
-                        <input type="checkbox" name="topping" value="">Chicharrones
-                        <input type="checkbox" name="topping" value="">Smoked Elvers
-                        <input type="checkbox" name="topping" value="">Tempe Slices
+                        <label><input type="checkbox" name="topping" value="">Pig Cheek</label>
+                        <label><input type="checkbox" name="topping" value="">Ikan Bilis</label>
+                        <label><input type="checkbox" name="topping" value="">Iberico Ham</label>
+                        <label><input type="checkbox" name="topping" value="">Chicharrones</label>
+                        <label><input type="checkbox" name="topping" value="">Smoked Elvers</label>
+                        <label><input type="checkbox" name="topping" value="">Tempe Slices</label>
                       </div>
                       <div class="for-the-ordinary">
-                        <input type="checkbox" name="topping" value="">Pepperoni
-                        <input type="checkbox" name="topping" value="">Canadian Ham
-                        <input type="checkbox" name="topping" value="">Sausage Crumbles
-                        <input type="checkbox" name="topping" value="">Bacon Bits
-                        <input type="checkbox" name="topping" value="">Chicken Pieces
+                        <label><input type="checkbox" name="topping" value="">Pepperoni</label>
+                        <label><input type="checkbox" name="topping" value="">Canadian Ham</label>
+                        <label><input type="checkbox" name="topping" value="">Sausage Crumbles</label>
+                        <label><input type="checkbox" name="topping" value="">Bacon Bits</label>
+                        <label><input type="checkbox" name="topping" value="">Chicken Pieces</label>
                       </div>
                       <h6>Plants</h6>
                       <div class="unique">
-                        <input type="checkbox" name="topping" value="">Grilled Eggplant
-                        <input type="checkbox" name="topping" value="">Durian Fruit
-                        <input type="checkbox" name="topping" value="">Daikon Slices
-                        <input type="checkbox" name="topping" value="">Loquat Squares
-                        <input type="checkbox" name="topping" value="">Nopales Shavings
-                        <input type="checkbox" name="topping" value="">Quartered Okra
-                        <input type="checkbox" name="topping" value="">Steamed Monk's Beard
-                        <input type="checkbox" name="topping" value="">Swiss Chard
+                        <label><input type="checkbox" name="topping" value="">Grilled Eggplant</label>
+                        <label><input type="checkbox" name="topping" value="">Durian Fruit</label>
+                        <label><input type="checkbox" name="topping" value="">Daikon Slices</label>
+                        <label><input type="checkbox" name="topping" value="">Loquat Squares</label>
+                        <label><input type="checkbox" name="topping" value="">Nopales Shavings</label>
+                        <label><input type="checkbox" name="topping" value="">Quartered Okra</label>
+                        <label><input type="checkbox" name="topping" value="">Steamed Monk's Beard</label>
+                        <label><input type="checkbox" name="topping" value="">Swiss Chard</label>
                       </div>
                       <div class="for-the-ordinary">
-                        <input type="checkbox" name="topping" value="">Red Onions
-                        <input type="checkbox" name="topping" value="">Pineapple
-                        <input type="checkbox" name="topping" value="">Bell Pepper
-                        <input type="checkbox" name="topping" value="">Jalapeño
-                        <input type="checkbox" name="topping" value="">Black Olives
+                        <label><input type="checkbox" name="topping" value="">Red Onions</label>
+                        <label><input type="checkbox" name="topping" value="">Pineapple</label>
+                        <label><input type="checkbox" name="topping" value="">Bell Pepper</label>
+                        <label><input type="checkbox" name="topping" value="">Jalapeño</label>
+                        <label><input type="checkbox" name="topping" value="">Black Olives</label>
                       </div>
                       <h6>Cheeses</h6>
                       <div class="unique">
-                        <input type="checkbox" name="topping" value="">Goat Cheese
-                        <input type="checkbox" name="topping" value="">Porcini Parmesan
-                        <input type="checkbox" name="topping" value="">Aged Cheddar And Filé Cheese
-                        <input type="checkbox" name="topping" value="">Galangal White Cheese
-                        <input type="checkbox" name="topping" value="">Idiazabal Crumbles
+                        <label><input type="checkbox" name="topping" value="">Goat Cheese</label>
+                        <label><input type="checkbox" name="topping" value="">Porcini Parmesan</label>
+                        <label><input type="checkbox" name="topping" value="">Aged Cheddar And Filé Cheese</label>
+                        <label><input type="checkbox" name="topping" value="">Galangal White Cheese</label>
+                        <label><input type="checkbox" name="topping" value="">Idiazabal Crumbles</label>
                       </div>
                       <div class="for-the-ordinary">
-                        <input type="checkbox" name="topping" value="">Mozzarella Cheese
-                        <input type="checkbox" name="topping" value="">Cheddar Cheese
-                        <input type="checkbox" name="topping" value="">Provolone Cheese
+                        <label><input type="checkbox" name="topping" value="">Mozzarella Cheese</label>
+                        <label><input type="checkbox" name="topping" value="">Cheddar Cheese</label>
+                        <label><input type="checkbox" name="topping" value="">Provolone Cheese</label>
                       </div>
                       <h6>Other</h6>
                       <div class="unique">
-                        <input type="checkbox" name="topping" value="">Puffball Rounds
-                        <input type="checkbox" name="topping" value="">Nigella Seeds
-                        <input type="checkbox" name="topping" value="">Nori With Sesame Seeds
-                        <input type="checkbox" name="topping" value="">Enoki Chunks
+                        <label><input type="checkbox" name="topping" value="">Puffball Rounds</label>
+                        <label><input type="checkbox" name="topping" value="">Nigella Seeds</label>
+                        <label><input type="checkbox" name="topping" value="">Nori With Sesame Seeds</label>
+                        <label><input type="checkbox" name="topping" value="">Enoki Chunks</label>
                       </div>
                       <div class="for-the-ordinary">
-                        <input type="checkbox" name="topping" value="">Cremini Mushrooms
-                        <input type="checkbox" name="topping" value="">Franks Hot Sauce
-                        <input type="checkbox" name="topping" value="">Fried Egg
-                        <input type="checkbox" name="topping" value="">Avocado Slices
+                        <label><input type="checkbox" name="topping" value="">Cremini Mushrooms</label>
+                        <label><input type="checkbox" name="topping" value="">Franks Hot Sauce</label>
+                        <label><input type="checkbox" name="topping" value="">Fried Egg</label>
+                        <label><input type="checkbox" name="topping" value="">Avocado Slices</label>
                       </div>
                     </div>
                     <div id="premium-options">
                       <h5>Premium Toppings</h5>
                       <div class="unique">
-                        <input type="checkbox" name="premium" value="">Quinoa Sprinkles
-                        <input type="checkbox" name="premium" value="">Quahog
-                        <input type="checkbox" name="premium" value="">Pink Fir Apple Slices
-                        <input type="checkbox" name="premium" value="">Physalis Jam
-                        <input type="checkbox" name="premium" value="">Powdering of Matcha
-                        <input type="checkbox" name="premium" value="">Boletes
+                        <label><input type="checkbox" name="premium" value="">Quinoa Sprinkles</label>
+                        <label><input type="checkbox" name="premium" value="">Quahog</label>
+                        <label><input type="checkbox" name="premium" value="">Pink Fir Apple Slices</label>
+                        <label><input type="checkbox" name="premium" value="">Physalis Jam</label>
+                        <label><input type="checkbox" name="premium" value="">Powdering of Matcha</label>
+                        <label><input type="checkbox" name="premium" value="">Boletes</label>
                       </div>
                       <div class="for-the-ordinary">
-                        <input type="checkbox" name="topping" value="">Basil Leaves
-                        <input type="checkbox" name="topping" value="">Sundried Tomatoes
-                        <input type="checkbox" name="topping" value="">Ricotta Cheese
-                        <input type="checkbox" name="topping" value="">Carmelized Onions
+                        <label><input type="checkbox" name="topping" value="">Basil Leaves</label>
+                        <label><input type="checkbox" name="topping" value="">Sundried Tomatoes</label>
+                        <label><input type="checkbox" name="topping" value="">Ricotta Cheese</label>
+                        <label><input type="checkbox" name="topping" value="">Carmelized Onions</label>
                       </div>
                     </div>
                     <div id="add-pizza">
