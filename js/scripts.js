@@ -116,7 +116,6 @@ $(document).ready(function(){
   });
 
   $("#show-options").click(function(){
-    console.log($(".modal"));
     $(".modal").modal("show");
   });
 
@@ -135,7 +134,7 @@ $(document).ready(function(){
     $(".for-the-ordinary").hide();
     $("#weird").hide();
     $('#selections')[0].reset();
-});
+  });
 
 });
 
@@ -258,7 +257,6 @@ function getSelectionValues(groupArray){
     var regexAll = /[A-Za-zéñ]/;
     var regexUpper = /[A-Z]/;
     var value = $(selection)[0].nextSibling.textContent;
-    console.log($(selection));
     var cleanVal = "";
     for(var i=0; i<value.length;i++){
       if(regexUpper.test(value[i]) && i !== 0){
