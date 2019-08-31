@@ -16,7 +16,14 @@
         <p class="lead">Make one of our "weird pizzas" with our unique toppings!</p>
       </div>
       <div id="show-options-area">
-        <button id="show-options" type="button" name="button">Make A Pizza!</button>
+        <div class="row">
+          <div class="col">
+            <button id="show-options" type="button" name="button">Make A Pizza!</button>
+          </div>
+          <div class="col">
+              <button id="submit-order" type="button" name="button">Send In My Order!</button>
+          </div>
+        </div>
       </div>
       <div class="modal" tabindex="-1" role="dialog">
         <div class="vertical-alignment-helper">
@@ -313,7 +320,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="spacer">
+                    <div id="spacer1">
                       <p> </p>
                     </div>
                     <div id="add-pizza" class="float">
@@ -331,17 +338,17 @@
         <div id="pizzas">
           <div id="no-order" class="card">
             <div class="card-body">
-              <div class="card-text"><strong>Make a Pizza!</strong></div>
+              <div class="card-text"><strong>Click on Make a Pizza!</strong></div>
             </div>
           </div>
         </div>
         <div id="total">
           <h5>Total : $<span id="price"></span></h5>
         </div>
-        <div>
-          <button id="submit-order" type="button" name="button">Send In My Order!</button>
-          <!-- Add modal to show pizza order status -->
+        <div id="spacer2">
+          <p> </p>
         </div>
+        <!-- Add modal to show pizza order status -->
       </div>
     </div>
   </body>
