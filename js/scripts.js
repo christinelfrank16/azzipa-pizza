@@ -164,22 +164,23 @@ function buildPizzaDisplay(pizzaItem){
         <button class="remove" type="button">X</button>
         <div class="row">
           <div class="col">
+            <div class="card-text"><strong>Pizza Type</strong>:</div>
             <div class="card-text">$SIZE$</div>
             <div class="card-text">$SAUCE$</div>
             <div class="card-text">$XTRA$</div>
           </div>
           <div class="col">
-            <div class="card-text">Toppings:</div>
+            <div class="card-text"><strong>Toppings</strong>:</div>
             <ul>
               <li>TOPPINGS</li>
             </ul>
-            <div class="card-text">Premiums:</div>
+            <div class="card-text"><strong>Premiums</strong>:</div>
             <ul>
             <li>PREMIUM</li>
             </ul>
           </div>
         </div>
-        <div class="card-text">Cost: $$COST$</div>
+        <div class="card-text"><strong>Cost</strong>: $$COST$</div>
       </div>
     </div>
   `;

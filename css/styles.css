@@ -12,6 +12,17 @@ body {
 
 .for-the-ordinary {
   display: none;
+  background-color: rgba(255, 153, 51, 0.6);
+  padding: 0 6px;
+  border-radius: 5px;
+
+}
+
+.unique {
+  background-color: rgba(94, 94, 94, 0.6);
+  padding: 0 6px;
+  border-radius: 5px;
+  margin-bottom: 4px;
 }
 
 #weird {
@@ -22,12 +33,17 @@ body {
   float: right;
 }
 
-.modal h5 {
+.modal h5, .modal h6 {
   text-align: center;
 }
 
-.modal h6 {
-  text-align: center;
+.modal-header {
+  color: #313131;
+}
+
+.modal-body {
+  background-color: #313131;
+  color: white;
 }
 
 .col {
@@ -82,7 +98,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-color: lightgreen;
+  background-color: #ff9933;
   box-shadow: 5px 5px 15px 3px grey;
 }
 
@@ -102,6 +118,12 @@ body {
   opacity: 0.85;
 }
 
+
+
+.remove {
+  border-radius: 5px;
+}
+
 #no-order {
   text-align: center;
 }
@@ -118,16 +140,6 @@ body {
 #pizzas {
   margin: 1em 0;
 }
-
-/* #submit-order {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  height: 2em;
-  border: 1px solid grey;
-  border-radius: 5px;
-} */
 
 /* Centering modal references StackOverflow */
 /* https://stackoverflow.com/questions/18053408/vertically-centering-bootstrap-modal-window*/
@@ -157,11 +169,4 @@ body {
     font-size: 2rem;
   }
 
-  /* h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  } */
 }
