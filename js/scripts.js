@@ -116,7 +116,12 @@ $(document).ready(function(){
   });
 
   $("#show-options").click(function(){
-    $(".modal").modal("show");
+    $("#select-pizza").modal("show");
+  });
+
+  $("#submit-order").click(function(){
+    updateStatusModal(order);
+    $("#status").modal("show");
   });
 
   $("#selections").submit(function(event){
@@ -125,18 +130,27 @@ $(document).ready(function(){
     var selections = getFormVals();
     var newPizza = makePizza(selections);
     order.addPizza(newPizza);
-    $(".modal").modal("hide");
+    $("#select-pizza").modal("hide");
     order.updateTotal();
     displayOrder(order);
   });
 
-  $(".modal").on("hidden.bs.modal", function () {
+  $("#select-pizza").on("hidden.bs.modal", function () {
     $(".for-the-ordinary").hide();
     $("#weird").hide();
     $('#selections')[0].reset();
   });
 
 });
+
+function updateStatusModal(order){
+  var modalBody = $(".modal-body");
+  var statusHtml = ""
+  if(!order.order.length){
+    statusHtml = "<h5>No pizzas added to order</h5><h6>May we suggest a medium pizza with anchovy sauce and eggplant?</h6>";
+  }
+  modalBody.html(statusHtml);
+}
 
 function attachPizzaRemoveListeners(order){
   $("#pizzas").on("click", ".remove", function(event){
