@@ -38,7 +38,7 @@ body {
 }
 
 .modal-header {
-  color: #313131;
+  /* color: #313131; */
 }
 
 .modal-body {
@@ -62,13 +62,13 @@ body {
   margin: 0;
 }
 
-.modal label {
+#select-pizza label {
   display: block;
   margin-left: 25px;
   vertical-align: middle;
 }
 
-.modal input {
+#select-pizza input {
   float: left;
   margin-top: 6px;
 }
@@ -93,7 +93,7 @@ body {
   left: 0;
   right:0;
 }
-.modal #modal-btn {
+#select-pizza #modal-btn {
   width: 80%;
   display: block;
   margin-left: auto;
@@ -140,6 +140,16 @@ body {
 #pizzas {
   margin: 1em 0;
 }
+
+#status-bar {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  display: inline-block;
+  background: yellow;
+  border: 1px solid black;
+  transform: skewX(-10deg);
+  }
 
 /* Centering modal references StackOverflow */
 /* https://stackoverflow.com/questions/18053408/vertically-centering-bootstrap-modal-window*/

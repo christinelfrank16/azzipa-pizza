@@ -117,11 +117,13 @@ $(document).ready(function(){
 
   $("#show-options").click(function(){
     $("#select-pizza").modal("show");
+    console.log("clicked options");
   });
 
   $("#submit-order").click(function(){
     updateStatusModal(order);
     $("#status").modal("show");
+    console.log("clicked order");
   });
 
   $("#selections").submit(function(event){
@@ -138,16 +140,18 @@ $(document).ready(function(){
   $("#select-pizza").on("hidden.bs.modal", function () {
     $(".for-the-ordinary").hide();
     $("#weird").hide();
-    $('#selections')[0].reset();
+    if($('#selections')[0]){
+      $('#selections')[0].reset();
+    }
   });
 
 });
 
 function updateStatusModal(order){
-  var modalBody = $(".modal-body");
+  var modalBody = $("#status .modal-body");
   var statusHtml = ""
   if(!order.order.length){
-    statusHtml = "<h5>No pizzas added to order</h5><h6>May we suggest a medium pizza with anchovy sauce and eggplant?</h6>";
+    statusHtml = "<h5>Your order is empty</h5><h6>May we suggest a medium pizza with anchovy sauce, goat cheese and eggplant?</h6>";
   }
   modalBody.html(statusHtml);
 }
@@ -163,11 +167,26 @@ function attachPizzaRemoveListeners(order){
 function displayOrder(order){
   var pizzaOrder = $("#pizzas");
   var htmlPizzasToDisplay = "";
-  order.order.forEach(function(pizza){
-    htmlPizzasToDisplay += buildPizzaDisplay(pizza);
-  });
+  if(order.order.length){
+    order.order.forEach(function(pizza){
+      htmlPizzasToDisplay += buildPizzaDisplay(pizza);
+    });
+  } else {
+    htmlPizzasToDisplay = buildEmptyDisplay();
+  }
   pizzaOrder.html(htmlPizzasToDisplay);
   $("#price").text(order.total);
+}
+
+function buildEmptyDisplay(){
+  var html = `
+    <div id="no-order" class="card">
+      <div class="card-body">
+        <div class="card-text"><strong>Click on Make a Pizza!</strong></div>
+      </div>
+    </div>
+  `;
+  return html;
 }
 
 function buildPizzaDisplay(pizzaItem){
