@@ -99,9 +99,12 @@ Order.prototype.updateTotal = function(){
 
 
 ///////// Front End /////////
+var count = 0;
+var currentPercent=0;
 
 $(document).ready(function(){
   var order = new Order();
+
   attachPizzaRemoveListeners(order);
   $("#price").text(order.total);
 
@@ -143,26 +146,18 @@ $(document).ready(function(){
     }
   });
 
-  var canvas = document.getElementById("canvas1");
-  var context = canvas.getContext("2d");
 
+  $("#tester").click(function(){
 
-  var raf =
-      window.requestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.msRequestAnimationFrame;
-  window.requestAnimationFrame = raf;
+    console.log("Click!");
+    drawPizza();
+    // return setInterval(function() { drawArc(testCanvas, currentPercent, percent, count);}, 30);
+    window.requestAnimationFrame(drawArc);
+    //drawArc(testCanvas, currentPercent, percent, count);
 
+    console.log("After function: " + currentPercent);
 
-
-  draw(context, canvas);
-
-
-
-
-
-
+  });
 
 });
 
@@ -324,31 +319,39 @@ function getSelectionValues(groupArray){
   return selectionVals;
 }
 
-///// Referenced from https://stackoverflow.com/questions/43184783/draw-and-erase-arcs-arc-animation-using-javascript-or-css  /////////
-///// In conjunction with https://codepen.io/depthdev/pen/wyDis ///////
-function draw(context, canvas, draw_to) {
-  // init
-  var start = -Math.PI/2;
-  var circumference = Math.PI * 2;
-  var finish = 100; // in percent
-  var current = 0; // current position in percent
+///// Referenced from https://instructobit.com/tutorial/16/Creating-an-animated-arc-in-Javascript ////////
+function drawArc(){
+  var testCanvas = $("#canvas1")[0].getContext("2d");
+  testCanvas.fillStyle = "red";
+  testCanvas.height=450;
+  testCanvas.width=450;
+  console.log("Entered arc");
+  console.log("current percent: " + currentPercent);
+  var percent=99.9;
+  x=225;
+  y=225;
+  radius=225;
+  count++;
+  testCanvas.globalCompositeOperation = 'destination-out';
 
-  var x = canvas.width / 2;
-  var y = canvas.height / 2;
-  var radius = (canvas.width / 7) * 2;
-  context.lineWidth = 285;
+  if(currentPercent<percent){
+    console.log("I did it again! " + count);
+    currentPercent+=percent/20;
+    console.log("increased percent: " + currentPercent);
+    testCanvas.clearRect(0, 0, 150,150);
+    testCanvas.beginPath();
+    testCanvas.moveTo(x, y);
+    testCanvas.arc(x, y, radius, 270*(Math.PI/180),(360* currentPercent /100 -90)*(Math.PI/180));
+    testCanvas.fill();
+    window.requestAnimationFrame(drawArc);
+  }
+}
 
-  // at every frame we clear everything
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  context.beginPath();
-  context.arc(x, y, radius, start, draw_to, false);
-  context.stroke();
-  current += 0.25;
-
-  if(current < finish +1) {
-  	requestAnimationFrame(function(){
-    	draw(context, canvas, circumference * current / 100 + start); // loop at screen refresh rate
-  	});
-	}
+function drawPizza(){
+  var testCanvas = $("#canvas1")[0].getContext("2d");
+  var img = new Image();
+  img.src = "img/pizzaRound.png";
+  img.onload = function(){
+    testCanvas.drawImage(img, 0, 0);
+  }
 }
