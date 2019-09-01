@@ -149,8 +149,6 @@ $(document).ready(function(){
 
   $("#tester").click(function(){
 
-    console.log("Click!");
-    drawPizza();
     // return setInterval(function() { drawArc(testCanvas, currentPercent, percent, count);}, 30);
     window.requestAnimationFrame(drawArc);
     //drawArc(testCanvas, currentPercent, percent, count);
@@ -327,11 +325,17 @@ function drawArc(){
   testCanvas.width=450;
   console.log("Entered arc");
   console.log("current percent: " + currentPercent);
-  var percent=99.9;
+  var percent=99.999999;
   x=225;
   y=225;
   radius=225;
   count++;
+
+  testCanvas.beginPath();
+  testCanvas.arc(x, y, radius, 0, 2*Math.PI, false);
+
+
+
   testCanvas.globalCompositeOperation = 'destination-out';
 
   if(currentPercent<percent){
@@ -344,14 +348,5 @@ function drawArc(){
     testCanvas.arc(x, y, radius, 270*(Math.PI/180),(360* currentPercent /100 -90)*(Math.PI/180));
     testCanvas.fill();
     window.requestAnimationFrame(drawArc);
-  }
-}
-
-function drawPizza(){
-  var testCanvas = $("#canvas1")[0].getContext("2d");
-  var img = new Image();
-  img.src = "img/pizzaRound.png";
-  img.onload = function(){
-    testCanvas.drawImage(img, 0, 0);
   }
 }
