@@ -3,6 +3,7 @@
   <head>
     <title>Azzip's Pizza Parlor</title>
     <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.canvasjs.min.js" type="text/javascript"></script>
     <script src="js/popper.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
@@ -348,6 +349,10 @@
         <div id="spacer2">
           <p> </p>
         </div>
+        <div id="status-bg">
+          <canvas id="canvas1" width="500" height="300"></canvas>
+          <img src="img\pizzaRound.png" alt="A cartoon of a pizza made up of different types of pizza slices">
+        </div>
       </div>
     </div>
     <!-- Add modal to show pizza order status -->
@@ -362,8 +367,6 @@
               </button>
             </div>
             <div class="modal-body">
-              <div id="status-bar">Test
-              </div>
             </div>
           </div>
         </div>

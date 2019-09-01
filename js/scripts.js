@@ -117,13 +117,11 @@ $(document).ready(function(){
 
   $("#show-options").click(function(){
     $("#select-pizza").modal("show");
-    console.log("clicked options");
   });
 
   $("#submit-order").click(function(){
     updateStatusModal(order);
     $("#status").modal("show");
-    console.log("clicked order");
   });
 
   $("#selections").submit(function(event){
@@ -145,6 +143,27 @@ $(document).ready(function(){
     }
   });
 
+  var canvas = document.getElementById("canvas1");
+  var context = canvas.getContext("2d");
+
+
+  var raf =
+      window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.msRequestAnimationFrame;
+  window.requestAnimationFrame = raf;
+
+
+
+  draw(context, canvas);
+
+
+
+
+
+
+
 });
 
 function updateStatusModal(order){
@@ -152,6 +171,8 @@ function updateStatusModal(order){
   var statusHtml = ""
   if(!order.order.length){
     statusHtml = "<h5>Your order is empty</h5><h6>May we suggest a medium pizza with anchovy sauce, goat cheese and eggplant?</h6>";
+  } else {
+    statusHtml = "<div id=\"status-bar\">Test</div>";
   }
   modalBody.html(statusHtml);
 }
@@ -301,4 +322,33 @@ function getSelectionValues(groupArray){
     return cleanVal;
   });
   return selectionVals;
+}
+
+///// Referenced from https://stackoverflow.com/questions/43184783/draw-and-erase-arcs-arc-animation-using-javascript-or-css  /////////
+///// In conjunction with https://codepen.io/depthdev/pen/wyDis ///////
+function draw(context, canvas, draw_to) {
+  // init
+  var start = -Math.PI/2;
+  var circumference = Math.PI * 2;
+  var finish = 100; // in percent
+  var current = 0; // current position in percent
+
+  var x = canvas.width / 2;
+  var y = canvas.height / 2;
+  var radius = (canvas.width / 7) * 2;
+  context.lineWidth = 285;
+
+  // at every frame we clear everything
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  context.beginPath();
+  context.arc(x, y, radius, start, draw_to, false);
+  context.stroke();
+  current += 0.25;
+
+  if(current < finish +1) {
+  	requestAnimationFrame(function(){
+    	draw(context, canvas, circumference * current / 100 + start); // loop at screen refresh rate
+  	});
+	}
 }
