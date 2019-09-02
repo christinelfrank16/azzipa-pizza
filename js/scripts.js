@@ -129,6 +129,8 @@ $(document).ready(function(){
     $("#status").modal("show");
     if(order.order.length){
       window.requestAnimationFrame(drawArc);
+    } else {
+      $("#status button").show();
     }
   });
 
@@ -151,11 +153,8 @@ $(document).ready(function(){
     }
   });
 
-
-  $("#tester").click(function(){
-
-    window.requestAnimationFrame(drawArc);
-
+  $("#status button").on("click", function() {
+    location.reload();
   });
 
 });
@@ -170,6 +169,8 @@ function updateStatusModal(order){
     <div id="spacer3"></div>
     <img id="pizza-round" src="img\\pizzaRound.png" alt="A cartoon of a pizza made up of different types of pizza slices">
     <canvas id="canvas1" width="450px" height="450px"></canvas>
+    <h5 id="prep">Your Order is Being Prepared!</h5>
+    <h5 id="ready">Your Order is Ready!</h5>
     `;
   }
   modalBody.html(statusHtml);
@@ -353,5 +354,9 @@ function drawArc(){
     testCanvas.arc(x, y, radius, start, end, counterclockwise);
     testCanvas.fill();
     window.requestAnimationFrame(drawArc);
+  } else {
+    $("#ready").show();
+    $("#prep").hide();
+    $("#status button").show();
   }
 }
