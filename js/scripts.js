@@ -99,8 +99,10 @@ Order.prototype.updateTotal = function(){
 
 
 ///////// Front End /////////
+/// TODO: Find way to make these NOT global variables  //////
 var count = 0;
-var currentPercent=0;
+var angle = 0;
+var direction = 1;
 
 $(document).ready(function(){
   var order = new Order();
@@ -125,6 +127,9 @@ $(document).ready(function(){
   $("#submit-order").click(function(){
     updateStatusModal(order);
     $("#status").modal("show");
+    if(order.order.length){
+      window.requestAnimationFrame(drawArc);
+    }
   });
 
   $("#selections").submit(function(event){
@@ -149,11 +154,7 @@ $(document).ready(function(){
 
   $("#tester").click(function(){
 
-    // return setInterval(function() { drawArc(testCanvas, currentPercent, percent, count);}, 30);
     window.requestAnimationFrame(drawArc);
-    //drawArc(testCanvas, currentPercent, percent, count);
-
-    console.log("After function: " + currentPercent);
 
   });
 
@@ -165,7 +166,11 @@ function updateStatusModal(order){
   if(!order.order.length){
     statusHtml = "<h5>Your order is empty</h5><h6>May we suggest a medium pizza with anchovy sauce, goat cheese and eggplant?</h6>";
   } else {
-    statusHtml = "<div id=\"status-bar\">Test</div>";
+    statusHtml = `
+    <div id="spacer3"></div>
+    <img id="pizza-round" src="img\\pizzaRound.png" alt="A cartoon of a pizza made up of different types of pizza slices">
+    <canvas id="canvas1" width="450px" height="450px"></canvas>
+    `;
   }
   modalBody.html(statusHtml);
 }
@@ -320,32 +325,32 @@ function getSelectionValues(groupArray){
 ///// Referenced from https://instructobit.com/tutorial/16/Creating-an-animated-arc-in-Javascript ////////
 function drawArc(){
   var testCanvas = $("#canvas1")[0].getContext("2d");
-  testCanvas.fillStyle = "red";
+  testCanvas.fillStyle = "#313131";
   testCanvas.height=450;
   testCanvas.width=450;
-  console.log("Entered arc");
-  console.log("current percent: " + currentPercent);
-  var percent=99.999999;
-  x=225;
-  y=225;
-  radius=225;
-  count++;
+  var start = -Math.PI/2;
+  var end = angle - Math.PI/2;
+  var x=225;
+  var y=225;
+  var radius=225;
+  testCanvas.clearRect(0, 0, 450,450);
+  if(count < 2){
+    if(direction > 0){
+      angle+=Math.PI*2;
+    } else {
+      angle+=Math.PI/720;
+    }
 
-  testCanvas.beginPath();
-  testCanvas.arc(x, y, radius, 0, 2*Math.PI, false);
+    if(angle<0 || angle>Math.PI*2){
+      angle=0;
+      direction*=-1;
+      count++;
+    }
+    var counterclockwise=(direction>0)?false:true;
 
-
-
-  testCanvas.globalCompositeOperation = 'destination-out';
-
-  if(currentPercent<percent){
-    console.log("I did it again! " + count);
-    currentPercent+=percent/20;
-    console.log("increased percent: " + currentPercent);
-    testCanvas.clearRect(0, 0, 150,150);
     testCanvas.beginPath();
     testCanvas.moveTo(x, y);
-    testCanvas.arc(x, y, radius, 270*(Math.PI/180),(360* currentPercent /100 -90)*(Math.PI/180));
+    testCanvas.arc(x, y, radius, start, end, counterclockwise);
     testCanvas.fill();
     window.requestAnimationFrame(drawArc);
   }

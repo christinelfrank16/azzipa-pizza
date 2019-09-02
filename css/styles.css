@@ -82,6 +82,9 @@ body {
   bottom: 0;
   height: 400px;
 }
+#spacer3 {
+  height: 500px;
+}
 
 #add-pizza {
   width: 30%;
@@ -148,17 +151,17 @@ body {
 
 #canvas1 {
   position: absolute;
-  top: 225px;
-  left: 225px;
-  width: 450px;
-  height: 450px;
+  top: 15px;
+  left: 25px;
+  /* width: 450px;
+  height: 450px; */
   z-index: 1;
 }
 
 #pizza-round {
   position: absolute;
-  top: 225px;
-  left: 225px;
+  top: 15px;
+  left: 25px;
   z-index: 0;
 }
 
