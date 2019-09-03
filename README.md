@@ -11,7 +11,7 @@ This application provides the user fields to create their own pizza by selecting
 ## Setup/Installation Requirements
 
 #### View Hosted Site
-* Go to: (N/A - to be updated)
+* Go to: https://christinelfrank16.github.io/azzips-pizza/
 
 #### View a local version of this Site
 * Clone this repository
@@ -41,7 +41,7 @@ This application provides the user fields to create their own pizza by selecting
 | The application displays subsequent pizza selections and pizza cost when the user adds additional pizzas to their order | Submit nth Pizza | Order displays all pizza selections, cost breakdown per pizza|
 | The application updates the total order cost when the user adds additional pizzas to their order | Submit nth Pizza | Order displays updated order total, and all pizza selections and cost breakdown per pizza|
 | The application displays order status when the user commits their order | Submit Order | Order status displays and updates over time |
-| The application uses "Making Pizza", "Baking Pizza", "Packing Pizza", "Ready for Pickup" statuses, in that order, when displaying order status | Submit Order | Order status displays and updates over status values |
+| The application refreshes the  page when the order has been submitted and the user closes out of the status window| Close status modal| Page refreshes|
 
 #### Cost Behavior
 
@@ -64,7 +64,7 @@ This application provides the user fields to create their own pizza by selecting
 #### Display Behavior - HTML
 | Behavior | Input | Output|
 |:-------|:------:|:------:|
-| The application displays pizza size and topping options to user at page load | Open Website | Order displays pizza options |
+| The application displays pizza size and topping options to user after the user clicks on 'Make a Pizza' button | Click 'Make a Pizza'| Order displays pizza options |
 | The application defaults to a large pizza size selection, no sauce and no toppings | Open Website | Pizza options displayed with default values selected |
 | The application prevents multiple pizza size selections for a single pizza and updates to latest size selection | Select other pizza size | Selection from previous size removed and displays latest selection |
 | The application prevents multiple pizza sauce selections for a single pizza and updates to latest size selection | Select other pizza sauce | Selection from previous sauce removed and displays latest selection |
@@ -82,4 +82,4 @@ This application provides the user fields to create their own pizza by selecting
 
 *This application is licensed under the MIT license*
 
-Copyright (c) 2016 **Christine Frank**
+Copyright (c) 2019 **Christine Frank**
